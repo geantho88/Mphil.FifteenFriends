@@ -33,7 +33,10 @@ namespace Mphil.Fifteenfriends.Domain.Models
                 _decks.OrderBy(a => Guid.NewGuid()).ToList();
             }
 
-            throw new NullReferenceException();
+            else
+            {
+                throw new NullReferenceException();
+            }
         }
 
         public bool empty()

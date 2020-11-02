@@ -14,14 +14,14 @@ namespace Mphil.FifteenFriends.UI
 {
     public partial class Form2 : Form
     {
-        private readonly IGameService _gameService;
+        private readonly IDeckersMeeting _gameService;
         private readonly Person _player;
         public Form2()
         {
             InitializeComponent();
         }
 
-        public Form2(Person player, IGameService gameService)
+        public Form2(Person player, IDeckersMeeting gameService)
         {
             InitializeComponent();
             _player = player;

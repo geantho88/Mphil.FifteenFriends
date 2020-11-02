@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Mphil.Fifteenfriends.Services.Services
 {
-    public interface IGameService
+    public interface IDeckersMeeting
     {
         void CreateCardPlayers(int number);
         void CreateDicePlayers(int number);
@@ -16,11 +16,14 @@ namespace Mphil.Fifteenfriends.Services.Services
         void CreateTwo6CardDicePlayer(int number);
         void CreateTwo5DicePlayer(int number);
         void CreateTwo6DicePlayer(int number);
+        void ShuffleDeck();
         bool CanStartGame();
         void ClearPlayers();
         List<Person> GetPlayers();
         int GetRemainingCards();
         void PickCard(CardPlayer player);
+        void PickCard(CardDicePlayer player);
         int Roll(DicePlayer player);
+        int Roll(CardDicePlayer player);
     }
 }

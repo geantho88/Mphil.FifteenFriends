@@ -20,14 +20,14 @@ namespace Mphil.FifteenFriends.UI
             Application.SetCompatibleTextRenderingDefault(false);
             ConfigureServices();
 
-            var _gameService = new GameService();
+            var _gameService = new DeckersMeeting();
             Application.Run(new Form1(_gameService));
         }
 
         static void ConfigureServices()
         {
             var services = new ServiceCollection();
-            services.AddScoped<IGameService, GameService>();
+            services.AddScoped<IDeckersMeeting, DeckersMeeting>();
         }
     }
 }

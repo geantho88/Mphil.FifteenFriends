@@ -36,7 +36,7 @@ namespace Mphil.Fifteenfriends.Domain.Models
         public int Roll()
         {
             var rnd = new Random();
-            return rnd.Next(size);
+            return rnd.Next(1,size);
         }
     }
 }

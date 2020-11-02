@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Mphil.Fifteenfriends.Services.Services
 {
-    public class GameService : IGameService
+    public class DeckersMeeting : IDeckersMeeting
     {
         private readonly List<Person> _players;
         public Deck deck;
 
-        public GameService()
+        public DeckersMeeting()
         {
             _players = new List<Person>();
             deck = new Deck();
@@ -125,7 +125,17 @@ namespace Mphil.Fifteenfriends.Services.Services
             player.PickCard(deck);
         }
 
+        public void PickCard(CardDicePlayer player)
+        {
+            player.PickCard(deck);
+        }
+
         public int Roll(DicePlayer player)
+        {
+            return player.Roll();
+        }
+
+        public int Roll(CardDicePlayer player)
         {
             return player.Roll();
         }

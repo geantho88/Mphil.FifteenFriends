@@ -15,9 +15,9 @@ namespace Mphil.FifteenFriends.UI
     public partial class Form1 : Form
     {
         private List<Person> _players;
-        private readonly IGameService _gameService;
+        private readonly IDeckersMeeting _gameService;
 
-        public Form1(IGameService gameService)
+        public Form1(IDeckersMeeting gameService)
         {
             InitializeComponent();
             _gameService = gameService;
