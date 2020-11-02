@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Mphil.FifteenFriends.Tests
 {
     [TestClass]
-    public class UnitTest1
+    public class Form1Tests
     {
         [TestMethod]
         public void TestMethod1()

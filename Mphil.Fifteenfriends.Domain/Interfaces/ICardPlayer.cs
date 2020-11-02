@@ -9,7 +9,7 @@ namespace Mphil.Fifteenfriends.Domain.Interfaces
 {
     public interface ICardPlayer
     {
-        List<Card> OpenCards(List<Card> cards);
+        List<Card> OpenCards();
         void PickCard(Deck deck);
         List<Card> CardsInHand(List<Card> cards);
     }

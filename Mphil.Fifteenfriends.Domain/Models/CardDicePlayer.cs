@@ -18,7 +18,7 @@ namespace Mphil.Fifteenfriends.Domain.Models
             LastName = LastName;
         }
 
-        public List<Card> OpenCards(List<Card> cards)
+        public List<Card> OpenCards()
         {
             return _cards.ToList();
         }

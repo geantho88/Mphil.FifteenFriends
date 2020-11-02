@@ -14,6 +14,7 @@ namespace Mphil.FifteenFriends.UI
 {
     public partial class Form1 : Form
     {
+        private List<Person> _players;
         private readonly IGameService _gameService;
 
         public Form1(IGameService gameService)
@@ -41,13 +42,13 @@ namespace Mphil.FifteenFriends.UI
 
             if (_gameService.CanStartGame())
             {
-                var players = _gameService.GetPlayers();
+                _players = _gameService.GetPlayers();
                 var counter = 0;
 
                 var x = 196;
                 var y = 60;
 
-                foreach (var player in players)
+                foreach (var player in _players)
                 {
                     counter++;
 
@@ -57,8 +58,10 @@ namespace Mphil.FifteenFriends.UI
                         Size = new Size(100, 150),
                         SizeMode = PictureBoxSizeMode.StretchImage,
                         Location = new Point(x, y),
-                        Visible = true
+                        Visible = true,
                     };
+
+                    picture.MouseClick += new MouseEventHandler(player_Click);
 
                     Label lbl = new Label
                     {
@@ -89,6 +92,15 @@ namespace Mphil.FifteenFriends.UI
             {
                 MessageBox.Show("Ανώτατο όριο 15 παικτών. Παρακαλώ μειώστε το σύνολο των παικτών.");
             }
+        }
+
+        private void player_Click(object sender, EventArgs e)
+        {
+            PictureBox clickedPictureBox = sender as PictureBox;
+            var selectedPlayer = _players.FirstOrDefault(a => a.FullName == clickedPictureBox.Name);
+            
+            Form2 form2 = new Form2(selectedPlayer, _gameService);
+            form2.Show();            
         }
     }
 }

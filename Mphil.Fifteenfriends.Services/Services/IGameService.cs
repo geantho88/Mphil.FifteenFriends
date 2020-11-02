@@ -19,5 +19,8 @@ namespace Mphil.Fifteenfriends.Services.Services
         bool CanStartGame();
         void ClearPlayers();
         List<Person> GetPlayers();
+        int GetRemainingCards();
+        void PickCard(CardPlayer player);
+        int Roll(DicePlayer player);
     }
 }

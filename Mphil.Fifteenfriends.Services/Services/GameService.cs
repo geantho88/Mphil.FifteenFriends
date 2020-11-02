@@ -10,10 +10,12 @@ namespace Mphil.Fifteenfriends.Services.Services
     public class GameService : IGameService
     {
         private readonly List<Person> _players;
+        public Deck deck;
 
         public GameService()
         {
             _players = new List<Person>();
+            deck = new Deck();
         }
 
         public void CreateCardPlayers(int number)
@@ -33,7 +35,7 @@ namespace Mphil.Fifteenfriends.Services.Services
             {
                 for (int i = 1; i <= number; i++)
                 {
-                    _players.Add(new DicePlayer($"Dice Player", $" #{i}"));
+                    _players.Add(new DicePlayer($"Dice Player", $" #{i}", 4 , 6));
                 }
             }
         }
@@ -106,6 +108,26 @@ namespace Mphil.Fifteenfriends.Services.Services
         public List<Person> GetPlayers()
         {
             return _players;
+        }
+
+        public void ShuffleDeck()
+        {
+            deck.shuffle();
+        }
+
+        public int GetRemainingCards()
+        {
+            return deck.GetRemainingCards();
+        }
+
+        public void PickCard(CardPlayer player)
+        {
+            player.PickCard(deck);
+        }
+
+        public int Roll(DicePlayer player)
+        {
+            return player.Roll();
         }
     }
 }

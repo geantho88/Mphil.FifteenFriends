@@ -53,5 +53,15 @@ namespace Mphil.Fifteenfriends.Domain.Models
 
             throw new NullReferenceException();
         }
+
+        public int GetRemainingCards()
+        {
+            if (_decks.Any())
+            {
+                return _decks.Count();
+            }
+
+            return 0;
+        }
     }
 }

@@ -20,9 +20,9 @@ namespace Mphil.Fifteenfriends.Domain.Models
             return CardsInHand(cards);
         }
 
-        public List<Card> OpenCards(List<Card> cards)
+        public List<Card> OpenCards()
         {
-            return OpenCards(cards);
+            return OpenCards();
         }
 
         public void PickCard(Deck deck)

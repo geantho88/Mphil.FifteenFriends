@@ -17,17 +17,17 @@ namespace Mphil.Fifteenfriends.Domain.Models
             LastName = LastName;
         }
 
-        public virtual List<Card> OpenCards(List<Card> cards)
+        public List<Card> OpenCards()
         {
             return _cards.ToList();
         }
 
-        public virtual void PickCard(Deck deck)
+        public void PickCard(Deck deck)
         {
             _cards.Add(deck.pickCard());
         }
 
-        public virtual List<Card> CardsInHand(List<Card> cards)
+        public List<Card> CardsInHand(List<Card> cards)
         {
             return _cards.ToList();
         }
