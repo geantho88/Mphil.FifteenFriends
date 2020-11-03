@@ -35,7 +35,29 @@ namespace Mphil.Fifteenfriends.Services.Services
             {
                 for (int i = 1; i <= number; i++)
                 {
-                    _players.Add(new DicePlayer($"Dice Player", $" #{i}", 4 , 6));
+                    _players.Add(new DicePlayer($"Dice Player", $" #{i}"));
+                }
+            }
+        }
+
+        public void CreateDicePlayers(int number, Dictionary<int, double> rollResultChances)
+        {
+            if (number > 0)
+            {
+                for (int i = 1; i <= number; i++)
+                {
+                    _players.Add(new DicePlayer($"Dice Player", $" #{i}", rollResultChances));
+                }
+            }
+        }
+
+        public void CreateDicePlayers(int number, int rollResult, int expectedResult)
+        {
+            if (number > 0)
+            {
+                for (int i = 1; i <= number; i++)
+                {
+                    _players.Add(new DicePlayer($"Dice Player", $" #{i}", rollResult, expectedResult));
                 }
             }
         }

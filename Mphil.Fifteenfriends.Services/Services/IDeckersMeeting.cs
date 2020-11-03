@@ -11,6 +11,8 @@ namespace Mphil.Fifteenfriends.Services.Services
     {
         void CreateCardPlayers(int number);
         void CreateDicePlayers(int number);
+        void CreateDicePlayers(int number, int rollResult, int expectedResult);
+        void CreateDicePlayers(int number, Dictionary<int, double> rollResultChances);
         void CreateCardDicePlayers(int number);
         void CreateTwo5CardDicePlayers(int number);
         void CreateTwo6CardDicePlayer(int number);

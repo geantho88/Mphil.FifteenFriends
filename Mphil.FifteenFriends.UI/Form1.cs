@@ -16,16 +16,24 @@ namespace Mphil.FifteenFriends.UI
     {
         private List<Person> _players;
         private readonly IDeckersMeeting _gameService;
-
+        private readonly Dictionary<int, double> _rollResultChances;
         public Form1(IDeckersMeeting gameService)
         {
             InitializeComponent();
+            _rollResultChances = new Dictionary<int, double>();
             _gameService = gameService;
         }
 
         private void GameStartButton_Click(object sender, EventArgs e)
         {
             StartGame();
+
+            _rollResultChances.Add(1, 0.0);
+            _rollResultChances.Add(2, 0.2);
+            _rollResultChances.Add(3, 0.3);
+            _rollResultChances.Add(4, 0.5);
+            _rollResultChances.Add(5, 0.0);
+            _rollResultChances.Add(6, 0.2);
         }
 
         private void StartGame()
@@ -33,7 +41,7 @@ namespace Mphil.FifteenFriends.UI
             _gameService.ClearPlayers();
 
             _gameService.CreateCardPlayers((int)CardPlayersInput.Value);
-            _gameService.CreateDicePlayers((int)DicePlayersInput.Value);
+            _gameService.CreateDicePlayers((int)DicePlayersInput.Value, _rollResultChances);
             _gameService.CreateCardDicePlayers((int)CardDicePlayersInput.Value);
             _gameService.CreateTwo5CardDicePlayers((int)Two5CardDicePlayersInput.Value);
             _gameService.CreateTwo5DicePlayer((int)Two5DicePlayersInput.Value);
