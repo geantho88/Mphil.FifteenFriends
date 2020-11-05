@@ -15,7 +15,7 @@ namespace Mphil.Fifteenfriends.Domain.Models
 
         private readonly int _expectedResult;
 
-        private readonly Dictionary<int, double> _rollResultChances;
+        private Dictionary<int, double> _rollResultChances;
 
         public DicePlayer(string firstName, string lastName) : base(firstName, lastName)
         {
@@ -48,8 +48,21 @@ namespace Mphil.Fifteenfriends.Domain.Models
             }
             else if (_rollResultChances != null)
             {
-                var numbers = _rollResultChances.Where(a => a.Value > 0.0).Select(x => x.Key).OrderBy(a => a).ToList();
-                var result = numbers.OrderBy(x => rnd.Next()).FirstOrDefault();
+                //keep only the chances > 0%
+                var result = 0;
+                double diceRoll = rnd.NextDouble();
+                double cumulative = 0.0;
+
+                for (int i = 1; i <= _rollResultChances.Count; i++)
+                {
+                    cumulative += _rollResultChances[i];
+                    if (diceRoll < cumulative)
+                    {
+                        result = _rollResultChances.FirstOrDefault(a => a.Key == i).Key;
+                        break;
+                    }
+                }
+
                 return result;
             }
             else
