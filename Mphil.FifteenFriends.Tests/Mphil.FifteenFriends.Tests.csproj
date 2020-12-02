@@ -65,7 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PlayersTests.cs" />
-    <Compile Include="GameServiceTests.cs" />
+    <Compile Include="DeckersMeetingTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

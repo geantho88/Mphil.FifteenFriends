@@ -39,6 +39,7 @@ namespace Mphil.Fifteenfriends.Domain.Models
 
         public int Roll()
         {
+           
             var rnd = new Random();
 
             if (_rollResult > 0 && _expectedResult > 0)
@@ -48,12 +49,17 @@ namespace Mphil.Fifteenfriends.Domain.Models
             }
             else if (_rollResultChances != null)
             {
+                if (_rollResultChances.Any(a => a.Key > 6 || _rollResultChances.Any(x => x.Key <= 0)))
+                {
+                    throw new RollResultChanceException("Roll Result Keys should be greater than zero and less or equal than 6");
+                }
+
                 //keep only the chances > 0%
                 var result = 0;
                 double diceRoll = rnd.NextDouble();
                 double cumulative = 0.0;
 
-                for (int i = 1; i <= _rollResultChances.Count; i++)
+                for (int i = _rollResultChances.FirstOrDefault().Key; i <= _rollResultChances.LastOrDefault().Key; i++)
                 {
                     cumulative += _rollResultChances[i];
                     if (diceRoll < cumulative)
@@ -70,6 +76,13 @@ namespace Mphil.Fifteenfriends.Domain.Models
                 var result = rnd.Next(1, size);
                 return result;
             }
+        }       
+    }
+
+    public class RollResultChanceException : Exception
+    {
+        public RollResultChanceException(string message) : base(message)
+        {
         }
     }
 }

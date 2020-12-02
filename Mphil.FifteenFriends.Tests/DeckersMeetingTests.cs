@@ -6,7 +6,7 @@ using Mphil.Fifteenfriends.Services.Services;
 namespace Mphil.FifteenFriends.Tests
 {
     [TestClass]
-    public class GameServiceTests
+    public class DeckersMeetingTests
     {
         private IDeckersMeeting _deckersMeeting;
 
