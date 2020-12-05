@@ -11,11 +11,13 @@ namespace Mphil.Fifteenfriends.Domain.Models
     {
         private readonly int size = 6;
         private IList<Card> _cards = new List<Card>();
+        private Dictionary<int, double> _rollResultChances;
 
-        public CardDicePlayer(string firstName, string lastName) : base(firstName, lastName)
+        public CardDicePlayer(string firstName, string lastName, Dictionary<int, double> rollResultChances) : base(firstName, lastName)
         {
             FirstName = firstName;
             LastName = LastName;
+            _rollResultChances = rollResultChances;
         }
 
         public List<Card> OpenCards()

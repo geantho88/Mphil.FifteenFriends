@@ -53,10 +53,6 @@
     <Compile Include="Models\Deck.cs" />
     <Compile Include="Models\DicePlayer.cs" />
     <Compile Include="Models\Person.cs" />
-    <Compile Include="Models\Two6CardDicePlayer.cs" />
-    <Compile Include="Models\Two5CardDicePlayer.cs" />
-    <Compile Include="Models\Two5DicePlayer.cs" />
-    <Compile Include="Models\Two6DicePlayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

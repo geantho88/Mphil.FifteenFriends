@@ -62,57 +62,13 @@ namespace Mphil.Fifteenfriends.Services.Services
             }
         }
 
-        public void CreateCardDicePlayers(int number)
+        public void CreateCardDicePlayers(int number, Dictionary<int, double> rollResultChances)
         {
             if (number > 0)
             {
                 for (int i = 1; i <= number; i++)
                 {
-                    _players.Add(new CardDicePlayer($"Card Dice Player", $" #{i}"));
-                }
-            }
-        }
-
-        public void CreateTwo5CardDicePlayers(int number)
-        {
-            if (number > 0)
-            {
-                for (int i = 1; i <= number; i++)
-                {
-                    _players.Add(new Two5CardDicePlayer($"Two 5Card Dice Player", $" #{i}"));
-                }
-            }
-        }
-
-        public void CreateTwo6CardDicePlayer(int number)
-        {
-            if (number > 0)
-            {
-                for (int i = 1; i <= number; i++)
-                {
-                    _players.Add(new Two5CardDicePlayer($"Two 6Card Dice Player", $" #{i}"));
-                }
-            }
-        }
-
-        public void CreateTwo5DicePlayer(int number)
-        {
-            if (number > 0)
-            {
-                for (int i = 1; i <= number; i++)
-                {
-                    _players.Add(new Two5CardDicePlayer($"Two 5Dice Player", $" #{i}"));
-                }
-            }
-        }
-
-        public void CreateTwo6DicePlayer(int number)
-        {
-            if (number > 0)
-            {
-                for (int i = 1; i <= number; i++)
-                {
-                    _players.Add(new Two5CardDicePlayer($"Two 6Dice Player", $" #{i}"));
+                    _players.Add(new CardDicePlayer($"Card Dice Player", $" #{i}", rollResultChances));
                 }
             }
         }

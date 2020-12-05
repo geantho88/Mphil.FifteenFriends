@@ -28,7 +28,7 @@ namespace Mphil.FifteenFriends.Tests
         [TestMethod]
         public void Can_Create_Game_With_DicePlayers()
         {
-            _deckersMeeting.CreateDicePlayers(4);
+            _deckersMeeting.CreateDicePlayers(4, 1, 6);
             var _dicePayers = _deckersMeeting.GetPlayers();
             Assert.IsTrue(_dicePayers.Any());
         }
@@ -43,7 +43,7 @@ namespace Mphil.FifteenFriends.Tests
         [TestMethod]
         public void Can_Not_Create_Game_With_More_Than_15_players()
         {
-            _deckersMeeting.CreateDicePlayers(24);
+            _deckersMeeting.CreateDicePlayers(24, 3, 5);
             Assert.IsTrue(_deckersMeeting.CanStartGame() == false);
         }
 

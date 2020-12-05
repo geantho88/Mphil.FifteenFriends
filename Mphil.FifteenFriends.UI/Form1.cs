@@ -28,6 +28,8 @@ namespace Mphil.FifteenFriends.UI
         {
             StartGame();
 
+            _rollResultChances.Clear();
+
             _rollResultChances.Add(1, 0.0);
             _rollResultChances.Add(2, 0.2);
             _rollResultChances.Add(3, 0.3);
@@ -42,11 +44,7 @@ namespace Mphil.FifteenFriends.UI
 
             _gameService.CreateCardPlayers((int)CardPlayersInput.Value);
             _gameService.CreateDicePlayers((int)DicePlayersInput.Value, _rollResultChances);
-            _gameService.CreateCardDicePlayers((int)CardDicePlayersInput.Value);
-            _gameService.CreateTwo5CardDicePlayers((int)Two5CardDicePlayersInput.Value);
-            _gameService.CreateTwo5DicePlayer((int)Two5DicePlayersInput.Value);
-            _gameService.CreateTwo6CardDicePlayer((int)Two6CardDicePlayersInput.Value);
-            _gameService.CreateTwo6DicePlayer((int)Two6DicePlayersInput.Value);
+            _gameService.CreateCardDicePlayers((int)CardDicePlayersInput.Value, _rollResultChances);
 
             if (_gameService.CanStartGame())
             {

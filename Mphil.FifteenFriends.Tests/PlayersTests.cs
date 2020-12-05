@@ -45,7 +45,7 @@ namespace Mphil.FifteenFriends.Tests
             _dicePlayerWithFixedChances = new DicePlayer("test first name", "test last name", 4, 6);
             _dicePlayerWithRollChances = new DicePlayer("Nick", "Taramas", _rollResultChances);
             _dicePlayerWithInvalidRollChances = new DicePlayer("Nick", "Taramas", _invalidResultChances);
-            _cardDicePlayer = new CardDicePlayer("test first name", "test last name");
+            _cardDicePlayer = new CardDicePlayer("test first name", "test last name", _rollResultChances);
 
             _deckersMeeting = new DeckersMeeting();
         }
@@ -76,7 +76,7 @@ namespace Mphil.FifteenFriends.Tests
         {
             var result = _deckersMeeting.Roll(_dicePlayerWithInvalidRollChances);
             Assert.IsTrue(result > 0 && result <= 6);
-            //Assert.ThrowsException<RollResultChanceException>(() => _deckersMeeting.Roll(_dicePlayerWithInvalidRollChances), "Roll Result Keys should be greater than zero and less or equal than 6");
+            Assert.ThrowsException<RollResultChanceException>(() => _deckersMeeting.Roll(_dicePlayerWithInvalidRollChances), "Roll Result Keys should be greater than zero and less or equal than 6");
         }
 
 
